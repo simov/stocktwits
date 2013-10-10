@@ -1,0 +1,23 @@
+{
+    "name": "stocktwits",
+    "version": "0.0.1",
+    "description": "StockTwits API wrapper",
+    "keywords": ["stocktwits", "rest", "api"],
+    "license"   : "MIT",
+    "author": {
+        "name"  : "simo",
+        "email" : "simeonvelichkov@gmail.com"
+    },
+    "repository": {
+        "type"  : "git",
+        "url"   : "git://github.com/simov/stocktwits.git"
+    },
+    "devDependencies": {
+        "mocha" : "*",
+        "should": "*"
+    },
+    "main": "./lib/stocktwits",
+    "scripts": {
+        "test": "node_modules/bin/mocha --require should --reporter spec --timeout 5000 test/"
+    }
+}
