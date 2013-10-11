@@ -6,6 +6,8 @@ var token = 'YOUR_ACCESS_TOKEN';
 
 describe('POST', function () {
     it('should make a POST request', function (done) {
+        if (token == 'YOUR_ACCESS_TOKEN') return done(new Error('Access token required'));
+
         st.post('messages/create', {access_token:token}, {body:'message'}, function (err, res) {
             if (err) return done(err);
             res.body.response.status.should.equal(200);
