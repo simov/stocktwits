@@ -9,6 +9,13 @@ describe('GET', function () {
             done();
         });
     });
+    it('should return an API error', function (done) {
+        st.get('streams/user/nonexistinguser987', function (err, res) {
+            err.response.status.should.equal(404);
+            err.errors[0].message.should.equal('User not found');
+            done();
+        });
+    });
     it('should store the rate limits', function (done) {
         st.get('streams/user/StockTwits', {}, function (err, res) {
             if (err) return done(err);
