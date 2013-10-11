@@ -16,15 +16,7 @@ describe('GET', function () {
             done();
         });
     });
-    it('should store the rate limits', function (done) {
-        st.get('streams/user/StockTwits', {}, function (err, res) {
-            if (err) return done(err);
-            res.limit.should.equal(200);
-            res.remaining.should.be.below(200);
-            res.reset.should.be.an.instanceof(Date);
-            done();
-        });
-    });
+    
     it('should make a GET request without parameters', function (done) {
         st.get('streams/user/StockTwits', function (err, res) {
             if (err) return done(err);
@@ -41,6 +33,16 @@ describe('GET', function () {
             for (var i=0; i < res.body.messages.length; i++) {
                 res.body.messages[i].links.should.be.an.instanceof(Array);
             }
+            done();
+        });
+    });
+
+    it('should store the rate limits', function (done) {
+        st.get('streams/user/StockTwits', function (err, res) {
+            if (err) return done(err);
+            res.limit.should.equal(200);
+            res.remaining.should.be.below(200);
+            res.reset.should.be.an.instanceof(Date);
             done();
         });
     });
