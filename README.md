@@ -1,8 +1,13 @@
 stocktwits
 ==========
 
+```bash
+$ npm install stocktwits
+$ npm test
+```
 
-#GET
+
+##GET
 
 Accepts API string, query string params (optional) and a callback.
 
@@ -27,7 +32,7 @@ st.get('streams/friends', {access_token:'token', filter:'charts'}, function (err
 Note that some parameters are appended to the API string! Refer to the StockTwits documentation.
 
 
-#POST
+##POST
 
 Accepts API string, query string params, POST data and a callback.
 
@@ -37,3 +42,21 @@ st.post('messages/create', {access_token:'token'}, {body:'message'}, function (e
     console.log(res.body);
 });
 ```
+
+##RESPONSE
+
+###err
+
+`err` is one of:
+- network error
+- generic error from StockTwits (usually html page)
+- API error (JSON error response)
+
+###res
+
+`res` is a generic nodejs response object extended with:
+- **body** - parsed JSON response from the server
+- **raw** - the response as string
+- **limit** - the API limit for this type of request
+- **remainig** - remaining request for this time window
+- **reset** - rate limit reset date
