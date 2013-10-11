@@ -39,7 +39,7 @@ describe('module', function () {
         done();
     });
     it('should create a path', function (done) {
-        st.path('some/api', {param1:'value1', param2:'value2'})
+        st.getPath('some/api', {param1:'value1', param2:'value2'})
             .should.equal('/api/2/some/api.json?param1=value1&param2=value2');
         done();
     });
