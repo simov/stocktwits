@@ -1,6 +1,6 @@
 {
     "name": "stocktwits",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "StockTwits API wrapper",
     "keywords": ["stocktwits", "rest", "api"],
     "license"   : "MIT",
